@@ -7,7 +7,10 @@
 - Login Form
 - Signup Form
 - Form Validation
-- what is useRef hook
+- useRef hook
+- firebase setup is done
+- Deploying our app on production
+- Create sign up user in firebase
 
 # Feature 
 - Login/ Sign Up
