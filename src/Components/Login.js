@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import { checkValidData } from "../utils/validate";
 
 const Login = () => {
   // State variable to change the state of form
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   // Function to change the sign up and sign in form
   const toggleForm = () => {
     setIsSignInForm(!isSignInForm);
   };
+
+  // reference variables to use in useRef hook
+  const email = useRef(null);
+  const password = useRef(null);
+  const userName = useRef(null);
+
+  // Function to handle the signin / signup button
+  const toggleSignIn = () => {
+    // Validating the form
+    console.log(email.current.value); 
+    console.log(password.current.value); 
+    console.log(userName.current.value)
+
+    const message = checkValidData(email.current.value, password.current.value, userName.current.value);
+    setErrorMessage(message);
+    console.log(message);
+
+    // Sign / Sign Up handling
+  };
+
   return (
     <div>
       <Header />
@@ -19,38 +41,53 @@ const Login = () => {
           alt="background"
         />
       </div>
-      <form className="w-4/12 absolute p-12  bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="w-4/12 absolute p-12  bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80"
+      >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign in" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
+            ref={userName}
             type="text"
             placeholder="Enter full name"
             className="p-4 my-2 w-full bg-gray-700 border-2 border-white rounded-lg bg-opacity-50"
           />
         )}
         <input
+          ref={email}
           type="text"
           placeholder="Email address"
           className="p-4 my-2 w-full bg-gray-700 border-2 border-white rounded-lg bg-opacity-50"
         />
 
         <input
+          ref={password}
           type="password"
           placeholder="Enter password"
           className="p-4 my-2 w-full bg-gray-700 border-2 border-white rounded-lg bg-opacity-50"
         />
-        <button className="p-4 my-6 bg-red-700 rounded-lg w-full">
+        <p className="text-red-700 text-lg p-2 font-bold">{errorMessage}</p>
+        <button
+          type="button"
+          className="p-4 my-6 bg-red-700 rounded-lg w-full"
+          onClick={toggleSignIn}
+        >
           {isSignInForm ? "Sign in" : "Sign up"}
         </button>
+
         <h2 className="text-center opacity-70">OR</h2>
+
         <button className="p-4 my-6 bg-gray-600 rounded-lg w-full bg-opacity-60">
           Use a Sign code
         </button>
+
         <h2 className="text-center">
           <Link className="underline">Forget password?</Link>
         </h2>
+
         <p className="py-5">
           <Link className="underline cursor-pointer" onClick={toggleForm}>
             {isSignInForm
