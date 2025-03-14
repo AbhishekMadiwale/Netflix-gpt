@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { checkValidData } from "../utils/validate";
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   // State variable to change the state of form
@@ -21,15 +23,53 @@ const Login = () => {
   // Function to handle the signin / signup button
   const toggleSignIn = () => {
     // Validating the form
-    console.log(email.current.value); 
-    console.log(password.current.value); 
-    console.log(userName.current.value)
+    // console.log(email.current.value);
+    // console.log(password.current.value);
+    // console.log(userName.current.value);
 
-    const message = checkValidData(email.current.value, password.current.value, userName.current.value);
+    const message = checkValidData(
+      email.current.value,
+      password.current.value,
+      userName.current ? userName.current.value : ""
+    );
     setErrorMessage(message);
     console.log(message);
 
+    if (message) return;
+
     // Sign / Sign Up handling
+    if (!isSignInForm) {
+      // sign up logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    } else {
+      // sign in logic
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+    }
   };
 
   return (
