@@ -11,6 +11,12 @@
 - firebase setup is done
 - Deploying our app on production
 - Create sign up user in firebase
+- Implemented Sign in user API
+- Setup of Redux using ReduxToolkit
+    - first we created store in appStore.js
+    - then we created reducer in utils -> userSlice.js
+    - Imported reducer in store 
+    - now provide store at the root of the app
 
 # Feature 
 - Login/ Sign Up
