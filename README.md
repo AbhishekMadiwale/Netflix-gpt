@@ -17,6 +17,9 @@
     - then we created reducer in utils -> userSlice.js
     - Imported reducer in store 
     - now provide store at the root of the app
+- Implemented Signout 
+- User profile will get update on sign-in
+- Fetch movies from TMDB 
 
 # Feature 
 - Login/ Sign Up
