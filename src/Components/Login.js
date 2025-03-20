@@ -10,6 +10,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { Avatar } from "../utils/constants";
 
 const Login = () => {
   // State variable to change the state of form
@@ -57,7 +58,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: userName.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/60814339?v=4",
+            photoURL: Avatar,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;

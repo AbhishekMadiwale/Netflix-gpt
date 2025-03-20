@@ -18,7 +18,11 @@
     - Imported reducer in store 
     - now provide store at the root of the app
 - Implemented Signout 
+- Bugfix : user profile update
+- Bugfix : User will only redirect to browse if he/she is logged in 
 - User profile will get update on sign-in
+- Ubsubscribe to the onAuthStateChanged callback
+- Hardcoded files added in constant file
 - Fetch movies from TMDB 
 
 # Feature 
