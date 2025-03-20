@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -15,7 +15,6 @@ const Login = () => {
   // State variable to change the state of form
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Function to change the sign up and sign in form
@@ -70,15 +69,10 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
-              // ...
             })
             .catch((error) => {
               setErrorMessage(error.message);
             });
-
-          console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -95,8 +89,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
