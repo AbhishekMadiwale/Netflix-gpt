@@ -23,6 +23,8 @@
 - User profile will get update on sign-in
 - Ubsubscribe to the onAuthStateChanged callback
 - Hardcoded files added in constant file
+- Register to TMDB to get the api keys for your app
+- Get data from TMDB now playing movies list api
 - Fetch movies from TMDB 
 
 # Feature 
