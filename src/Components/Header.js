@@ -37,11 +37,11 @@ const Header = () => {
             photoURL: User_Avatar,
           })
         );
-        navigate("/browse")
+        navigate("/browse");
       } else {
         // we will remove the user on sign out and redirect to home
         dispatch(removeUser());
-        navigate("/")
+        navigate("/");
       }
     });
 
@@ -59,12 +59,12 @@ const Header = () => {
       {user && (
         <div className="flex p-6 ">
           <img
-            className="w-12 h-12 rounded-xl border-4 border-white"
+            className="w-12 h-12 rounded-xl border-2 border-white"
             alt="user_icon"
             src={user?.photoURL}
           />
           <button
-            className="font-bold text-white border-2 border-solid rounded-md bg-white text-black m-2 p-1 hover:bg-gray-600 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black"
+            className="font-bold text-black border-2 border-solid rounded-md bg-white text-black m-2 p-1 hover:bg-gray-600 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-black"
             onClick={handleSignOut}
           >
             Sign out

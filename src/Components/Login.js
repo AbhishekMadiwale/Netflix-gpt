@@ -31,9 +31,6 @@ const Login = () => {
   // Function to handle the signin / signup button
   const toggleSignIn = () => {
     // Validating the form
-    // console.log(email.current.value);
-    // console.log(password.current.value);
-    // console.log(userName.current.value);
 
     const message = checkValidData(
       email.current.value,
@@ -41,7 +38,6 @@ const Login = () => {
       userName.current ? userName.current.value : ""
     );
     setErrorMessage(message);
-    console.log(message);
 
     if (message) return;
 
