@@ -33,6 +33,7 @@
 - Update store with trailer video data.
 - Embadded the youtube video and make it autoplay and mute.
 - Tailwind classes to make main container it better.
+- Movies list are dynamic now with 4 different options.
 
 # Feature 
 - Login/ Sign Up
