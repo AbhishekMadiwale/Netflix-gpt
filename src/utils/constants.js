@@ -19,3 +19,5 @@ export const Now_Playing_Movies_Url = "https://api.themoviedb.org/3/movie/now_pl
 export const Popular_Movies_Url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 
 export const Upcoming_Movies_Url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+
+export const GPT_ICON = "https://cdn-icons-png.flaticon.com/128/11865/11865338.png"
