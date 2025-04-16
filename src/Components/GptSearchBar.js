@@ -3,9 +3,9 @@ import React from "react";
 const GptSearchBar = () => {
   return (
     <div>
-      <form className=" flex justify-center pt-[20%] ">
+      <form className=" flex justify-center pt-[10%] ">
         <input
-          className=" mr-10 w-[20%] p-4 border border-black rounded-lg h-12 "
+          className=" mr-10 w-[40%] p-4 border border-black rounded-lg h-12 "
           type="text"
           placeholder="What would you like to watch?"
         />

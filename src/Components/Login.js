@@ -10,7 +10,12 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { User_Avatar } from "../utils/constants";
+import {
+  User_Avatar,
+  SIGN_IN_STRING,
+  BACKGROUND_URL,
+  SIGN_UP_STRING,
+} from "../utils/constants";
 
 const Login = () => {
   // State variable to change the state of form
@@ -99,17 +104,14 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/04ef06cc-5f81-4a8e-8db0-6430ba4af286/web/IN-en-20250224-TRIFECTA-perspective_3a9c67b5-1d1d-49be-8499-d179f6389935_large.jpg"
-          alt="background"
-        />
+        <img src={BACKGROUND_URL} alt="background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="w-4/12 absolute p-12  bg-black my-36 mx-auto right-0 left-0 text-white bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? "Sign in" : "Sign Up"}
+          {isSignInForm ? SIGN_IN_STRING : SIGN_UP_STRING}
         </h1>
         {!isSignInForm && (
           <input
@@ -138,7 +140,7 @@ const Login = () => {
           className="p-4 my-6 bg-red-700 rounded-lg w-full"
           onClick={toggleSignIn}
         >
-          {isSignInForm ? "Sign in" : "Sign up"}
+          {isSignInForm ? SIGN_IN_STRING : SIGN_UP_STRING}
         </button>
 
         <h2 className="text-center opacity-70">OR</h2>
