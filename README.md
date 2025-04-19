@@ -35,6 +35,8 @@
 - Tailwind classes to make main container it better.
 - Movies list are dynamic now with 4 different options.
 - GPT search feature.
+- GPT search bar.
+- Multi language support in GPT search page.
 
 # Feature 
 - Login/ Sign Up
